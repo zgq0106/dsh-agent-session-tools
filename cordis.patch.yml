@@ -1,0 +1,4 @@
+# 插入一条 Host 插件行。id 与包名刻意不同，便于和同名/同类插件共存排查。
+- insert:
+    - id: agent-session-tools
+      name: dsh-agent-session-tools

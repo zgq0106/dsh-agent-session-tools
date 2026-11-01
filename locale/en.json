@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Agent Session Tools",
+    "description": "Agent tools that create new DeepSeek Harness sessions and deliver queued or steering messages into any existing session."
+  }
+}

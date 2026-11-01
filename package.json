@@ -1,0 +1,64 @@
+{
+  "name": "dsh-agent-session-tools",
+  "version": "0.1.0",
+  "description": "Agent tools for DeepSeek Harness sessions: create a session, inject a queued or steering message into any session, list sessions, and cancel a running turn. 给 DeepSeek Harness Agent 用的会话工具：新建会话、向任意会话注入消息（排队/引导）、列出会话、取消当前轮次。",
+  "license": "MIT",
+  "author": "zgq0106 (https://github.com/zgq0106)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zgq0106/dsh-agent-session-tools.git"
+  },
+  "homepage": "https://github.com/zgq0106/dsh-agent-session-tools#readme",
+  "bugs": {
+    "url": "https://github.com/zgq0106/dsh-agent-session-tools/issues"
+  },
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "test/**",
+    "README.md",
+    "README.en.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node test/smoke.mjs"
+  },
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0"
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "cordis",
+    "agent",
+    "session",
+    "session-management",
+    "multi-agent",
+    "inject",
+    "steer"
+  ],
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "compatibility": {
+      "dshReleases": {
+        "0.2.1-rc.5": "compatible"
+      }
+    }
+  }
+}
