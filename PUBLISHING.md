@@ -41,8 +41,8 @@
 ```powershell
 cd E:\HarnessWorkRoom\dsh-agent-session-tools
 node --check index.js
-node test/smoke.mjs          # 应输出 59 passed, 0 failed
-npm pack --dry-run --json    # 看 files 列表：应为 11 个文件，无 node_modules
+npm test                     # 五个测试文件：156 passed，其余 pass 全中、fail 全 0
+npm pack --dry-run --json    # 看 files 列表：含 src/ 与 test/，无 node_modules
 ```
 
 再看一眼有没有不该上传的东西：
@@ -51,7 +51,7 @@ npm pack --dry-run --json    # 看 files 列表：应为 11 个文件，无 node
 Get-ChildItem -Force | Select-Object Name
 ```
 
-应该只有：`CHANGELOG.md`、`LICENSE`、`README.md`、`README.en.md`、`PUBLISHING.md`、`cordis.patch.yml`、`icon.svg`、`index.js`、`locale/`、`package.json`、`test/`、`.gitignore`。
+应该只有：`CHANGELOG.md`、`LICENSE`、`README.md`、`README.en.md`、`PUBLISHING.md`、`THIRD-PARTY-NOTICES.md`、`cordis.patch.yml`、`icon.svg`、`index.js`、`src/`、`locale/`、`package.json`、`test/`、`.gitignore`。
 
 ---
 

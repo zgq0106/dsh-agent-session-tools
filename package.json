@@ -1,7 +1,7 @@
 {
   "name": "dsh-agent-session-tools",
-  "version": "0.1.0",
-  "description": "Agent tools for DeepSeek Harness sessions: create a session, inject a queued or steering message into any session, list sessions, and cancel a running turn. 给 DeepSeek Harness Agent 用的会话工具：新建会话、向任意会话注入消息（排队/引导）、列出会话、取消当前轮次。",
+  "version": "0.2.0",
+  "description": "Agent tools for DeepSeek Harness sessions: create a session, inject queued or steering messages into any session, wait for replies, read output segments, inspect live progress, watch other sessions, and migrate a task to a successor session. 给 DeepSeek Harness Agent 用的会话工具：新建会话、向任意会话注入消息（排队/引导）、等待回复、增量读取输出、查看实时进度、守候其他会话、把任务迁到继任会话。",
   "license": "MIT",
   "author": "zgq0106 (https://github.com/zgq0106)",
   "repository": {
@@ -23,6 +23,7 @@
   },
   "files": [
     "index.js",
+    "src/**",
     "cordis.patch.yml",
     "locale/*.json",
     "icon.svg",
@@ -30,10 +31,11 @@
     "README.md",
     "README.en.md",
     "CHANGELOG.md",
+    "THIRD-PARTY-NOTICES.md",
     "LICENSE"
   ],
   "scripts": {
-    "test": "node test/smoke.mjs"
+    "test": "node test/smoke.mjs && node test/tick.test.mjs && node test/watches.test.mjs && node test/wiring.test.mjs && node test/telemetry.test.mjs"
   },
   "engines": {
     "node": "^22.19.0 || >=24.0.0"
@@ -48,7 +50,9 @@
     "session-management",
     "multi-agent",
     "inject",
-    "steer"
+    "steer",
+    "session-watch",
+    "handoff"
   ],
   "dsh": {
     "manifestVersion": 1,
@@ -57,7 +61,8 @@
     },
     "compatibility": {
       "dshReleases": {
-        "0.2.1-rc.5": "compatible"
+        "0.2.1-rc.5": "compatible",
+        "0.2.2-rc.2": "compatible"
       }
     }
   }
